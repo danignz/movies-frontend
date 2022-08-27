@@ -26,7 +26,6 @@ export default function Home() {
       {!movies && <p>Loading</p>}
       {movies &&
         movies.map((movie) => {
-          /* return <p key={movie._id}><Link to={`/movies/${movie._id}`}>{movie.title}</Link></p> */
           return <Card key={movie._id} movieData={movie} />;
         })}
       <Outlet />
