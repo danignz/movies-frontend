@@ -1,8 +1,15 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
 
-export default function Card() {
+export default function Card({ movieData }) {
   return (
-    // Use to display each one of the movies
-    <div>Card</div>
-  )
+    <div>
+      <h2>{<Link to={`/movies/${movieData._id}`}>{movieData.title}</Link>}</h2>
+      <img
+        width={250}
+        src={movieData.image}
+        alt={`Pic of ${movieData.title}`}
+      />
+    </div>
+  );
 }
