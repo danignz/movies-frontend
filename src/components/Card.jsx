@@ -6,7 +6,7 @@ export default function Card({ movieData }) {
     <div>
       <h2>{<Link to={`/movie/${movieData._id}`}>{movieData.title}</Link>}</h2>
       <img
-        width={250}
+        height={250}
         src={movieData.image}
         alt={`Pic of ${movieData.title}`}
       />

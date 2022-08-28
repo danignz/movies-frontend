@@ -14,10 +14,15 @@ export default function New() {
   });
 
   const handleChange = (e) => {
+    const parseValue =
+      e.target.name === "year" || e.target.name === "duration"
+        ? parseInt(e.target.value)
+        : e.target.value;
+
     setMovie((prev) => {
       return {
         ...prev,
-        [e.target.name]: e.target.value,
+        [e.target.name]: parseValue,
       };
     });
   };
@@ -29,7 +34,7 @@ export default function New() {
         "http://localhost:8000/api/v1/movies",
         movie
       );
-      navigate(`/movies/${newMovie.data.data._id}`);
+      navigate(`/movie/${newMovie.data.data._id}`);
     } catch (error) {
       console.error(error);
     }
@@ -40,6 +45,7 @@ export default function New() {
       <h2>Create a movie</h2>
 
       <form onSubmit={handleSubmit}>
+        <label>Title</label>
         <input
           type="text"
           name="title"
@@ -47,6 +53,7 @@ export default function New() {
           value={movie.title}
           onChange={handleChange}
         />
+        <label>Year</label>
         <input
           type="number"
           name="year"
@@ -54,6 +61,7 @@ export default function New() {
           value={movie.year}
           onChange={handleChange}
         />
+        <label>Director</label>
         <input
           type="text"
           name="director"
@@ -61,6 +69,7 @@ export default function New() {
           value={movie.director}
           onChange={handleChange}
         />
+        <label>Duration</label>
         <input
           type="number"
           name="duration"
@@ -68,6 +77,7 @@ export default function New() {
           value={movie.duration}
           onChange={handleChange}
         />
+        <label>Synopsis</label>
         <input
           type="text"
           name="synopsis"
@@ -75,6 +85,7 @@ export default function New() {
           value={movie.synopsis}
           onChange={handleChange}
         />
+        <label>Image</label>
         <input
           type="text"
           name="image"
