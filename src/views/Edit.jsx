@@ -103,7 +103,9 @@ export default function Edit() {
             value={movie.image}
             onChange={handleChange}
           />
-          <button type="submit">Save</button>
+          <button className="btn-style" type="submit">
+            Save
+          </button>
         </form>
       )}
     </div>

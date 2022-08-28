@@ -36,19 +36,34 @@ export default function Movie() {
       <h2>Movie details</h2>
 
       {movie && (
-        <div>
-          <h4>Movie: {movie.title}</h4>
-          <p>Year: {movie.year}</p>
-          <p>Director: {movie.director}</p>
-          <p>Duration: {movie.duration}</p>
-          <p>Synopsis: {movie.synopsis}</p>
-          <p>image:</p>
+        <div id="container">
           <p>
-            <img width={250} src={movie.image} alt={`Pic of ${movie.title}`} />
+            <b>Movie:</b> {movie.title}
           </p>
-
-          <button onClick={handleDelete}>Delete movie</button>
-          <button onClick={() => navigate(`/edit/${id}`)}>Edit movie</button>
+          <p>
+            <b>Year:</b> {movie.year}
+          </p>
+          <p>
+            <b>Director:</b> {movie.director}
+          </p>
+          <p>
+            <b>Duration:</b> {movie.duration}
+          </p>
+          <p>
+            <b>Synopsis:</b> {movie.synopsis}
+          </p>
+          <p>
+            <img width={300} src={movie.image} alt={`Pic of ${movie.title}`} />
+          </p>
+          <button className="btn-style2" onClick={handleDelete}>
+            Delete movie
+          </button>
+          <button
+            className="btn-style3"
+            onClick={() => navigate(`/edit/${id}`)}
+          >
+            Edit movie
+          </button>
         </div>
       )}
       {!movie && <p>Movie not found</p>}

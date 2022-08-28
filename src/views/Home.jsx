@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Outlet } from "react-router-dom";
 import axios from "axios";
 import Card from "../components/Card";
 
@@ -28,7 +27,6 @@ export default function Home() {
         movies.map((movie) => {
           return <Card key={movie._id} movieData={movie} />;
         })}
-      <Outlet />
     </div>
   );
 }
